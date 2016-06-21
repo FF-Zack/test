@@ -1,0 +1,32 @@
+[
+  {
+    "id": "1",
+    "navTitle": "资产管理",
+    "navIcon": "fa-dashboard",
+    "submenu": [
+      {
+        "navTitle": "二级菜单",
+        "url": "./ajax/dashboard-asset.html"
+      },
+      {
+        "navTitle": "二级菜单",
+        "url": "./ajax/dashboard-asset.html"
+      }
+    ]
+  },
+  {
+    "id": "2",
+    "navTitle": "首页",
+    "navIcon": "fa-dashboard",
+    "submenu": [
+      {
+        "navTitle": "二级菜单",
+        "url": "./ajax/dashboard-asset.html"
+      },
+      {
+        "navTitle": "二级菜单",
+        "url": "./ajax/dashboard-asset.html"
+      }
+    ]
+  }
+]
