@@ -481,3 +481,75 @@ function addEvent(target,type,handler){
         })
     }
 }
+//函数记忆
+function memory(fn){
+    var cache = {};
+    return function(){
+        var key = arguments.length + Array.prototype.join.call(arguments,',');
+        if(key in cache){
+            return cache[key];
+        }
+        else{
+            return cache[key] = fn.apply(this,arguments);
+        }
+    }
+}
+/*
+    var factorial = memory(function(n){
+        return (n <= 1) ? 1 : n * factorial(n-1);
+    })
+*/
+
+//判断是否数组
+function isArray(arr){
+    return Object.prototype.toString.call(arr) === "[object function]";
+}
+
+/*获取url中的参数*/
+var getUrlParams = function(name) {
+    var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)", "i");
+    var r = window.location.search.substr(1).match(reg);
+    if (r != null) return decodeURI(r[2]); return null;
+}
+
+
+//定义类
+/*
+    constructor:实例函数
+    methods：实例的方法，复制到原型中
+    statics：类属性，复制到构造函数    
+*/
+function definedClass(constructor,methods,statics){
+    if(methods) extend(constructor.prototype,methods);
+    if(statics) extend(constructor,statics);
+    return constructor;
+}
+
+Array.prototype.remove = function(val) {
+    var index = this.indexOf(val);
+    if (index > -1) {
+        this.splice(index, 1);
+    }
+};
+
+//获取当前月份有多少天,闰年部分还需增加判断
+function getDays(month){
+    var date = new Date();
+    var y = date.getFullYear();
+    var m = month || date.getMonth() + 1;
+    if(m>12){
+        m = m-12;
+        y++;
+    }
+    else{
+        m = m;
+    }
+    if(m == 2){
+        return y % 4 == 0 ? 29 : 28;
+    }else if(m == 1 || m == 3 || m == 5 || m == 7 || m == 8 || m == 10 || m == 12){
+        return 31;
+    }else{
+        return 30;
+    }
+}
+
