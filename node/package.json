@@ -1,0 +1,25 @@
+{
+  "name": "zack_node",
+  "version": "1.0.0",
+  "description": "my personal node test",
+  "main": "upload-demo.js",
+  "dependencies": {
+    "express": "^4.14.0",
+    "formidable": "^1.0.17",
+    "supervisor": "^0.11.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/FF-Zack/test.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/FF-Zack/test/issues"
+  },
+  "homepage": "https://github.com/FF-Zack/test#readme"
+}
