@@ -1,6 +1,6 @@
-Vue.directive('example', {
-    params: ['a'],
-    bind: function () {
-        console.log(this.params.a) // -> "hi"
-    }
-})
+function test(){
+    console.log(1);
+    test();
+}
+
+test();
