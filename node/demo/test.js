@@ -1,18 +1,14 @@
-//delate start server
-var event = require('events');
-var eventEmitter = event.EventEmitter;
-var someEvent = new eventEmitter();
-var http = require('http');
+var express = require('express');
+var bodyParser = require('body-parser');
+var app = express();
 
-someEvent.on('pee',function(){
-    http.createServer(function(request,response){
-        response.writeHead(200,{'content-type':'text/plain'});
-        response.write('hello world');
-        response.end();
-    }).listen(8080);
-});
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({extend:false}));
 
-setTimeout(function(){
-    someEvent.emit('pee');
-    console.log('server start');
-},5000);
+app.all('/',function(req,res){
+    res.send(req.body.title);
+})
+
+app.listen(8080);
+
+

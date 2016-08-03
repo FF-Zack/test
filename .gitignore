@@ -1,3 +1,5 @@
 webpack-test/node_modules/
 .idea/
 node/node_modules/
+es6/node_modules/
+node/express-demo/microblog/node_modules/
