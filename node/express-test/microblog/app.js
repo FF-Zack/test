@@ -4,13 +4,10 @@ var favicon = require('serve-favicon');
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
-
 var session = require("express-session");
 var MongoStore = require('connect-mongo')(session);
-var setttings = require('./settings');
+var settings = require('./settings');
 var flash = require('connect-flash');
-
-
 
 
 var routes = require('./routes/index');
@@ -32,14 +29,29 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use(flash());
 
 app.use(session({
-  secret : setttings.cookieSecret,
+  secret : settings.cookieSecret,
   store : new MongoStore({
-    //db : setttings.db
-    url: 'mongodb://localhost/blog'
+    //db : settings.db
+    url: 'mongodb://localhost/microblog'
   }),
   resave : true,
   saveUninitialized : true
 }));
+
+//获取状态
+app.use(function(req,res,next){
+  console.log("app.user local");
+  console.log(req.session.user);
+  res.locals.user = req.session.user;
+  res.locals.post = req.session.post;
+  var error = req.flash('error');
+  res.locals.error = error.length?error:null;
+
+  var success = req.flash('success');
+  res.locals.success = success.length?success:null;
+
+  next();
+});
 
 app.use('/', routes);
 app.use('/index', routes);
@@ -50,7 +62,6 @@ app.use('/regAction', routes.regAction);
 app.use('/login', routes.login);
 app.use('/loginAction', routes.loginAction);
 app.use('/logout', routes.logout);
-
 
 
 // catch 404 and forward to error handler
