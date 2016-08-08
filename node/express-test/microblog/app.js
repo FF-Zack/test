@@ -8,6 +8,7 @@ var session = require("express-session");
 var MongoStore = require('connect-mongo')(session);
 var settings = require('./settings');
 var flash = require('connect-flash');
+var util = require('util');
 
 
 var routes = require('./routes/index');
@@ -40,7 +41,7 @@ app.use(session({
 
 //获取状态
 app.use(function(req,res,next){
-  console.log("app.user local");
+  //console.log("app.user local");
   console.log(req.session.user);
   res.locals.user = req.session.user;
   res.locals.post = req.session.post;

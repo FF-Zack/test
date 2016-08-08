@@ -1,4 +1,6 @@
-<form class="form-horizontal" method="post">
+<% include header.ejs %>
+
+<form class="form-horizontal" method="post" action="/loginAction">
     <fieldset>
         <legend>用户登入</legend>
         <div class="control-group">
@@ -18,3 +20,5 @@
         </div>
     </fieldset>
 </form>
+
+<% include footer.ejs %>
