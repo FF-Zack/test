@@ -1,20 +1,29 @@
-var fs = require('fs');
-var path = require('path');
+var http = require('http');
+var zlib = require('zlib');
 
-function travel(dir, callback) {
-    fs.readdirSync(dir).forEach(function (file) {
-        var pathname = path.join(dir, file);
+http.createServer(function (request, response) {
+    var i = 1024,
+        data = '';
 
-        if (fs.statSync(pathname).isDirectory()) {
-            travel(pathname, callback);
-        } else {
-            if(pathname.indexOf('.js') >　0){
-                callback(pathname);
-            }
-        }
-    });
-}
+    while (i--) {
+        data += '.';
+    }
 
-travel('../../node', function (pathname) {
-    console.log(pathname);
-});
+    console.log(request.url);
+
+    if ((request.headers['accept-encoding'] || '').indexOf('gzip') !== -1) {
+        console.log('sup');
+        zlib.gzip(data, function (err, data) {
+            response.writeHead(200, {
+                'Content-Type': 'text/plain',
+                'Content-Encoding': 'gzip'
+            });
+            response.end(data);
+        });
+    } else {
+        response.writeHead(200, {
+            'Content-Type': 'text/plain'
+        });
+        response.end(data);
+    }
+}).listen(80);
