@@ -1,0 +1,19 @@
+<template>
+    <scroller>
+        <div repeat="{{list}}">
+            <text>{{name}}: ${{price}}</text>
+        </div>
+    </scroller>
+</template>
+
+<script>
+    module.exports = {
+        data: {
+            list: [
+                {name: '...', price: 100},
+                {name: '...', price: 500},
+                {name: '...', price: 1.5},
+        ]
+    }
+    }
+</script>

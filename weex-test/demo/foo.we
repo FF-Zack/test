@@ -1,0 +1,15 @@
+<!-- foo.we -->
+<template>
+    <container style="flex-direction: row;">
+        <image src="{{image}}" style="width: 400;height: 400;"></image>
+        <text>{{title}}</text>
+    </container>
+</template>
+<script>
+    module.exports = {
+        data: {
+            title: null,
+            image: null
+        }
+    }
+</script>
