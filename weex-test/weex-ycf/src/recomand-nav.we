@@ -46,9 +46,9 @@
         item-size: 20;
     }
     .nav-img{
-        width: 120;
+        width: 100;
         height: 100;
-        margin-left: 15;
+        margin-left: 25;
     }
     .slider {
         width: 750;
