@@ -1,29 +1,35 @@
-<template>
-  <div class="ct" style="height: {{ctHeight}}">
-    <image class="img" style="width: 400px; height: 400px;" src="{{img}}"></image>
-    <text style="font-size: 42;">Hello Weex!</text>
+<template class="page">
+  <div>
+    <div class="header">
+      <a href="index.html?page=./dist/locationPage.js" class="header-location"><text>我在广州&#9660;</text></a>
+      <search></search>
+    </div>
+    <slider-img></slider-img>
+    <recomand></recomand>
   </div>
 </template>
 
 <style>
-  .ct {
-    width: 750;
-    align-items: center;
-    justify-content: center;
+  .page{
+    background-color: #ebebeb;
   }
-  .img {
-    margin-bottom: 20px;
+  .header-location{
+    flex: 1;
+    color: #fff;
+  }
+  .header{
+    flex-direction: row;
+    position: absolute;
+    top: 20;
+    display: flex;
+    width: 675;
+    margin-left: 37.5;
+    z-index: 10;
   }
 </style>
 
 <script>
-  module.exports = {
-    data: {
-      ctHeight: 800,
-      img: '//gw.alicdn.com/tps/i2/TB1DpsmMpXXXXabaXXX20ySQVXX-512-512.png_400x400.jpg'
-    },
-    ready: function () {
-      this.ctHeight = this.$getConfig().env.deviceHeight
-    }
-  }
+  require('./search.we');
+  require('./slider-img.we');
+  require('./recomand.we');
 </script>

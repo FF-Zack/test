@@ -44,39 +44,10 @@
 /* 0 */
 /***/ function(module, exports) {
 
-	;__weex_define__("@weex-component/2b126ef48a72077d6105331fb4a305b8", [], function(__weex_require__, __weex_exports__, __weex_module__){
+	;__weex_define__("@weex-component/d41d8cd98f00b204e9800998ecf8427e", [], function(__weex_require__, __weex_exports__, __weex_module__){
 
-	;
-	    __weex_module__.exports = {
-	        data: function () {return {
-	            list: [
-	                {name: '...', price: 100},
-	                {name: '...', price: 500},
-	                {name: '...', price: 1.5},
-	        ]
-	    }}
-	    }
-
-	;__weex_module__.exports.template = __weex_module__.exports.template || {}
-	;Object.assign(__weex_module__.exports.template, {
-	  "type": "scroller",
-	  "children": [
-	    {
-	      "type": "div",
-	      "repeat": function () {return this.list},
-	      "children": [
-	        {
-	          "type": "text",
-	          "attr": {
-	            "value": function () {return (this.name) + ': $' + (this.price)}
-	          }
-	        }
-	      ]
-	    }
-	  ]
 	})
-	})
-	;__weex_bootstrap__("@weex-component/2b126ef48a72077d6105331fb4a305b8", {
+	;__weex_bootstrap__("@weex-component/d41d8cd98f00b204e9800998ecf8427e", {
 	  "transformerVersion": "0.3.1"
 	},undefined)
 

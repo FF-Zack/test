@@ -8,6 +8,7 @@
   },
   "devDependencies": {
     "gulp": "^3.9.1",
+    "weex-components": "^0.2.0",
     "weex-html5": "^0.3.1"
   },
   "scripts": {

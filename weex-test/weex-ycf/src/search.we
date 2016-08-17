@@ -1,0 +1,46 @@
+<template>
+    <div class="header-input-div">
+        <!--图片路径相对于index.html文件-->
+        <image src="./images/search.png" class="icon-search"></image>
+        <input type="text" class="header-input" placeholder="周末去哪玩？" onclick="goToSecrchPage();"/>
+    </div>
+</template>
+
+<style>
+    .header-input-div{
+        flex: 2;
+    }
+    .icon-search{
+        position: absolute;
+        top:5;
+        left: 10;
+        width: 40;
+        height: 40;
+        z-index: 1;
+    }
+    .header-input{
+        height: 50;
+        border-radius:10;
+        outline: none;
+        border-width:3;
+        border-color:#C1C1C1;
+        background-color: #eee;
+        text-indent: 50;
+        placeholder-color:#393939;
+        color: #000;
+    }
+</style>
+
+
+<script>
+    module.exports = {
+        data:{},
+        methods : {
+            goToSecrchPage : function(){
+//                点击搜索框进入搜索框页面
+                location.href = 'index.html?page=./dist/searchPage.js';
+            }
+        },
+
+    }
+</script>

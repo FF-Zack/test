@@ -1,0 +1,67 @@
+<template>
+    <div style="flex-direction: column;" class="slider-container">
+        <slider class="slider" auto-play="true" onchange="change" intervalValue="2000">
+            <div class="slider-pages" repeat="{{imageList}}" onclick="goto(src)">
+                <image src="{{imgSrc}}" class="slider-img"></image>
+            </div>
+            <indicator class="indicator"></indicator>
+        </slider>
+    </div>
+
+</template>
+
+<style>
+    .indicator{
+        width: 150;
+        height:50;
+        position:absolute;
+        bottom:20;
+        right:50;
+        item-color: #eee;
+        item-selectedColor: #ff9000;
+        item-size: 20;
+    }
+    .slider {
+        width: 750;
+        height: 500;
+    }
+    .slider-pages {
+        flex-direction: row;
+        width: 750;
+        height: 500;
+    }
+    .slider-img{
+        width: 750;
+        height: 500;
+    }
+</style>
+
+<script>
+    module.exports = {
+        data: {
+            imageList: [
+                {
+                    imgSrc : 'http://cdn6.jinxidao.com/group1/M00/00/86/oYYBAFetay2AT3cTAABtXTj9DIU601.jpg?imageView2/0/w/760/interlace/1/q/100',
+                    src : 'http://www.baiduc.com'
+                },
+                {
+                    imgSrc : 'http://cdn6.jinxidao.com/group1/M00/00/86/oYYBAFeta2qACoqBAABKaWX_edk785.jpg?imageView2/0/w/760/interlace/1/q/100',
+                    src : 'http://m.yaochufa.com'
+                },
+                {
+                    imgSrc : 'http://cdn6.jinxidao.com/group1/M00/00/86/oYYBAFetasSAGlMoAABjDCXzd_c821.jpg?imageView2/0/w/760/interlace/1/q/100',
+                    src : 'http://www.zhihu.com'
+                },
+            ]
+        },
+        methods: {
+            change: function (e) {
+//                console.log(e.index);
+            },
+            goto : function(url){
+//                console.log('xxx');
+                location.href = url;
+            }
+        }
+    }
+</script>
