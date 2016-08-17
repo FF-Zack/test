@@ -21,7 +21,7 @@
         height: 400;
     }
     .nav-pages{
-        flex:1;
+        /*flex:1;*/
         width: 150;
         height: 100;
     }
@@ -34,6 +34,7 @@
         width: 150;
         text-overflow:ellipsis;
         height:80;
+        text-align: center;
     }
     .indicator{
         width: 750;
@@ -45,8 +46,9 @@
         item-size: 20;
     }
     .nav-img{
-        width: 150;
+        width: 120;
         height: 100;
+        margin-left: 15;
     }
     .slider {
         width: 750;
