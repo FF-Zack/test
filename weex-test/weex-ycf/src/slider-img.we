@@ -1,7 +1,7 @@
 <template>
     <div style="flex-direction: column;" class="slider-container">
         <slider class="slider" auto-play="true" onchange="change" intervalValue="2000">
-            <div class="slider-pages" repeat="{{imageList}}" onclick="goto(src)">
+            <div class="slider-pages" repeat="{{sliderImg}}" onclick="goto(src)">
                 <image src="{{imgSrc}}" class="slider-img"></image>
             </div>
             <indicator class="indicator"></indicator>
@@ -39,20 +39,7 @@
 <script>
     module.exports = {
         data: {
-            imageList: [
-                {
-                    imgSrc : 'http://cdn6.jinxidao.com/group1/M00/00/86/oYYBAFetay2AT3cTAABtXTj9DIU601.jpg?imageView2/0/w/760/interlace/1/q/100',
-                    src : 'http://www.baiduc.com'
-                },
-                {
-                    imgSrc : 'http://cdn6.jinxidao.com/group1/M00/00/86/oYYBAFeta2qACoqBAABKaWX_edk785.jpg?imageView2/0/w/760/interlace/1/q/100',
-                    src : 'http://m.yaochufa.com'
-                },
-                {
-                    imgSrc : 'http://cdn6.jinxidao.com/group1/M00/00/86/oYYBAFetasSAGlMoAABjDCXzd_c821.jpg?imageView2/0/w/760/interlace/1/q/100',
-                    src : 'http://www.zhihu.com'
-                },
-            ]
+            sliderImg: []
         },
         methods: {
             change: function (e) {

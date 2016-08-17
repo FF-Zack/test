@@ -1,0 +1,73 @@
+<template>
+    <div style="flex-direction: column;" class="slider-container">
+        <slider class="slider" auto-play="false" onchange="change" intervalValue="2000">
+            <div class="slider-nav-pages" repeat="{{item in recomandNav}}">
+                <div class="nav-pages" repeat="{{item}}">
+                    <image src="{{imgSrc}}" class="nav-img" onclick="goto(src)" resize="cover"></image>
+                    <text class="title">{{text}}</text>
+                </div>
+            </div>
+            <indicator class="indicator"></indicator>
+        </slider>
+    </div>
+
+</template>
+
+<style>
+    .slider-nav-pages {
+        flex-direction: row;
+        flex-wrap: wrap;
+        width: 750;
+        height: 400;
+    }
+    .nav-pages{
+        flex:1;
+        width: 150;
+        height: 100;
+    }
+    .title{
+        font-size:26;
+        font-weight:300;
+        margin-top:5;
+        color:#414141;
+        lines: 1;
+        width: 150;
+        text-overflow:ellipsis;
+        height:80;
+    }
+    .indicator{
+        width: 750;
+        height:50;
+        position:absolute;
+        bottom:20;
+        item-color: #eee;
+        item-selectedColor: #ff9000;
+        item-size: 20;
+    }
+    .nav-img{
+        width: 150;
+        height: 100;
+    }
+    .slider {
+        width: 750;
+        height: 400;
+        padding-top: 50;
+    }
+</style>
+
+<script>
+    module.exports = {
+        data: {
+            recomandNav: []
+        },
+        methods: {
+            change: function (e) {
+//                console.log(e.index);
+            },
+            goto : function(url){
+//                console.log('xxx');
+                location.href = url;
+            }
+        }
+    }
+</script>
