@@ -1,8 +1,8 @@
 <template>
     <div class="header-input-div">
         <!--图片路径相对于index.html文件-->
-        <image src="./images/search.png" class="icon-search"></image>
         <input type="text" class="header-input" placeholder="周末去哪玩？" onclick="goToSecrchPage();"/>
+        <image src="//cdn7.jinxidao.com/www/images/search/searchIcon.png" class="icon-search"></image>
     </div>
 </template>
 
@@ -16,16 +16,15 @@
         left: 10;
         width: 40;
         height: 40;
-        z-index: 1;
     }
     .header-input{
         height: 50;
-        border-radius:10;
+        border-radius:50;
         outline: none;
         border-width:3;
-        border-color:#C1C1C1;
+        border-color:#eee;
         background-color: #eee;
-        text-indent: 50;
+        padding-left: 50;
         placeholder-color:#393939;
         color: #000;
     }
@@ -41,6 +40,10 @@
                 location.href = 'index.html?page=./dist/searchPage.js';
             }
         },
+        ready : function(){
+            console.log('deviceHeight:'+this.$getConfig().env.deviceHeight);
+            console.log(this.$getConfig().env);
+        }
 
     }
 </script>

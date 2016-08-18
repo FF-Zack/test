@@ -51,3 +51,25 @@ module.exports = {
     ]
   }
 }
+
+//获取当前ip地址
+function getIPAddress(){
+  var os = require('os');
+  var ips = os.networkInterfaces();
+  var address ;
+  for(var item in ips){
+    for(var data in ips[item]){
+      var ip = ips[item][data];
+      if(ip.address.indexOf('192')==0){
+        address = ip.address;
+        return address;
+      }
+    }
+  }
+}
+
+//生成原生调试二维码
+var qrcode = require('qrcode-terminal');
+qrcode.generate("http://"+getIPAddress()+":12580/dist/main.js");
+
+console.log("\r\n按住ctrl点击右侧地址打开应用--->http://localhost:12580\r\n");

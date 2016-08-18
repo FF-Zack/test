@@ -40,7 +40,7 @@
         width: 750;
         height:50;
         position:absolute;
-        bottom:20;
+        top:320;
         item-color: #eee;
         item-selectedColor: #ff9000;
         item-size: 20;
@@ -53,7 +53,7 @@
     .slider {
         width: 750;
         height: 400;
-        padding-top: 50;
+        padding-top: 30;
     }
 </style>
 

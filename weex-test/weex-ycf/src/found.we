@@ -1,0 +1,325 @@
+<template>
+    <container class="page">
+        <div class="header">
+            <div class="header-nav"><text class="nav-text {{headerShow == 'recomand' ? 'selected' : 'noSelected'}}" onclick="toggleHeader('recomand');">必玩推荐</text></div>
+            <div class="header-nav"><text class="nav-text {{headerShow == 'rule' ? 'selected' : 'noSelected'}}" onclick="toggleHeader('rule');">游玩须知</text></div>
+        </div>
+
+        <list class="recomand-list" if="{{headerShow == 'recomand'}}">
+            <cell append="tree">
+                <div class="recomand-cont" repeat="{{recomandData}}">
+                    <image src="{{imgSrc}}" class="recomand-img"></image>
+                    <text class="recomand-name">{{name}}</text>
+                    <text class="recomand-score">推荐指数：{{score}}颗星</text>
+                    <text class="recomand-thumb" onclick="thumbTo(id)">推荐{{thumbTotal}}</text>
+                    <text class="recomand-intro">{{intro}}</text>
+                    <div class="recomand-time" if="{{bestTime != ''}}">
+                        <div class="time-img-zone"><image src="{{iconBest}}" class="icon"></image></div>
+                        <div class="time-text-zone"><text class="time-text">最佳游玩时间：</text><text class="bestTime">{{bestTime}}（最佳游玩时间）</text></div>
+                    </div>
+                    <div class="recomand-time" if="{{adviceTime != ''}}">
+                        <div class="time-img-zone"><image src="{{iconAdvice}}" class="icon"></image></div>
+                        <div class="time-text-zone"><text class="time-text">建议游玩时长：</text><text class="adviceTime">{{adviceTime}}（建议游玩时长）</text></div>
+                    </div>
+                    <div class="recomand-time" if="{{suitFor != ''}}">
+                        <div class="time-img-zone"><image src="{{iconSuit}}" class="icon"></image></div>
+                        <div class="time-text-zone"><text class="time-text">适宜人群：</text><text class="suitFor">{{suitFor}}（适宜人群）</text></div>
+                    </div>
+                </div>
+            </cell>
+        </list>
+
+        <list class="rule-list" if="{{headerShow == 'rule'}}">
+            <cell>
+                <div >
+                    <text>rule div</text>
+                </div>
+            </cell>
+        </list>
+    </container>
+</template>
+
+<style>
+    .recomand-thumb{
+        position: absolute;
+        right: -20;
+        top:20;
+        color: #fff;
+        font-size: 28;
+        background-color: rgba(0,0,0,0.5);
+        height: 50;
+        line-height: 45;
+        padding-left: 20;
+        border-radius: 40;
+        padding-right: 30;
+    }
+    .time-img-zone{
+        flex: 1;
+    }
+    .time-text-zone{
+        flex: 16;
+        flex-direction: row;
+    }
+    .time-text{
+        font-size: 28;
+        color: rgb(135, 108, 82);
+    }
+    .bestTime{
+        color: #96bc6e;
+        font-size: 28;
+        flex: 1;
+    }
+    .adviceTime{
+        color: #65aae9;
+        font-size: 28;
+        flex: 1;
+    }
+    .suitFor{
+        color: #f66f57;
+        font-size: 28;
+        flex: 1;
+    }
+    .icon{
+        width: 32;
+        height: 32;
+    }
+    .recomand-time{
+        margin-left: 30;
+        font-size: 28;
+        color: #876c52;
+        flex-direction: row;
+        margin-top: 20;
+        margin-bottom: 20;
+    }
+    .recomand-cont{
+        border-bottom-width: 25;
+        border-color: #f0ede2;
+    }
+    .recomand-img{
+        width: 750;
+        height: 450;
+    }
+    .recomand-score{
+        position: absolute;
+        top:400;
+        left: 30;
+        color: #fff;
+        font-size: 24;
+    }
+    .recomand-name{
+        position: absolute;
+        top : 350;
+        left: 30;
+        color: #fff;
+    }
+    .recomand-intro{
+        margin-left: 30;
+        color: #876c52;
+        margin-top: 30;
+        font-size: 28;
+    }
+    .recomand-list{
+        background-color: #fff;
+        margin-top: 25;
+    }
+    .rule-list{
+        background-color: #fff;
+        margin-top: 25;
+    }
+    .page{
+        background-color: #f0ede2;
+    }
+    .header{
+        flex-direction: row;
+        background-color: #fff;
+    }
+    .header-nav{
+        flex: 1;
+    }
+    .nav-text{
+        width: 285;
+        margin-left: 45;
+        height: 80px;
+        line-height: 80px;
+        text-align: center;
+        color: #876c52;
+    }
+    .selected{
+        color:#ff9000;
+        border-bottom-width: 3px;
+        border-color: #ff9000;
+    }
+    .noSelected{
+        border-bottom-width: 3px;
+        border-color: #fff;
+    }
+</style>
+
+<script>
+    module.exports = {
+        data : {
+            headerShow : 'recomand',
+            iconBest : 'http://m-test.yaochufa.com/static/mmm/images/scenic_info/icon_1.png',
+            iconAdvice : 'http://m-test.yaochufa.com/static/mmm/images/scenic_info/icon_2.png',
+            iconSuit : 'http://m-test.yaochufa.com/static/mmm/images/scenic_info/icon_3.png',
+            recomandData : [
+                {
+                    name : '丹霞山',
+                    score : '5',
+                    intro : '景区介绍1',
+                    bestTime : '每天',
+                    adviceTime : '',
+                    suitFor : '',
+                    thumbTotal : '20',
+                    src : 'http://www.baidu.com',
+                    id : '2',
+                    imgSrc : 'http://cdn6.jinxidao.com/group1/M00/00/86/oYYBAFetasSAGlMoAABjDCXzd_c821.jpg?imageView2/0/w/760/interlace/1/q/100',
+                },
+                {
+                    name : '丹霞山22',
+                    score : '4',
+                    intro : '景区介绍2',
+                    bestTime : '',
+                    adviceTime : '全天',
+                    suitFor : '',
+                    thumbTotal : '5',
+                    id : '2',
+                    src : 'http://www.google.com',
+                    imgSrc : 'http://cdn6.jinxidao.com/group1/M00/00/86/oYYBAFetay2AT3cTAABtXTj9DIU601.jpg?imageView2/0/w/760/interlace/1/q/100',
+                },
+                {
+                    name : '丹霞山333',
+                    score : '5',
+                    intro : '景区介绍3',
+                    bestTime : '',
+                    adviceTime : '',
+                    suitFor : '男女老少',
+                    id : '2',
+                    thumbTotal : '10',
+                    src : 'http://www.zhihu.com',
+                    imgSrc : 'http://cdn6.jinxidao.com/group1/M00/00/86/oYYBAFetasSAGlMoAABjDCXzd_c821.jpg?imageView2/0/w/760/interlace/1/q/100',
+                },
+                {
+                    name : '丹霞山',
+                    score : '5',
+                    intro : '景区介绍1',
+                    bestTime : '每天',
+                    adviceTime : '',
+                    suitFor : '',
+                    id : '2',
+                    thumbTotal : '20',
+                    src : 'http://www.baidu.com',
+                    imgSrc : 'http://cdn6.jinxidao.com/group1/M00/00/86/oYYBAFetasSAGlMoAABjDCXzd_c821.jpg?imageView2/0/w/760/interlace/1/q/100',
+                },
+                {
+                    name : '丹霞山22',
+                    score : '4',
+                    intro : '景区介绍2',
+                    bestTime : '',
+                    adviceTime : '全天',
+                    id : '2',
+                    suitFor : '',
+                    thumbTotal : '5',
+                    src : 'http://www.google.com',
+                    imgSrc : 'http://cdn6.jinxidao.com/group1/M00/00/86/oYYBAFetay2AT3cTAABtXTj9DIU601.jpg?imageView2/0/w/760/interlace/1/q/100',
+                },
+                {
+                    name : '丹霞山333',
+                    score : '5',
+                    intro : '景区介绍3',
+                    bestTime : '',
+                    adviceTime : '',
+                    id : '2',
+                    suitFor : '男女老少',
+                    thumbTotal : '10',
+                    src : 'http://www.zhihu.com',
+                    imgSrc : 'http://cdn6.jinxidao.com/group1/M00/00/86/oYYBAFetasSAGlMoAABjDCXzd_c821.jpg?imageView2/0/w/760/interlace/1/q/100',
+                },
+                {
+                    name : '丹霞山',
+                    score : '5',
+                    intro : '景区介绍1',
+                    bestTime : '每天',
+                    adviceTime : '',
+                    suitFor : '',
+                    id : '2',
+                    thumbTotal : '20',
+                    src : 'http://www.baidu.com',
+                    imgSrc : 'http://cdn6.jinxidao.com/group1/M00/00/86/oYYBAFetasSAGlMoAABjDCXzd_c821.jpg?imageView2/0/w/760/interlace/1/q/100',
+                },
+                {
+                    name : '丹霞山22',
+                    score : '4',
+                    intro : '景区介绍2',
+                    bestTime : '',
+                    adviceTime : '全天',
+                    suitFor : '',
+                    thumbTotal : '5',
+                    id : '2',
+                    src : 'http://www.google.com',
+                    imgSrc : 'http://cdn6.jinxidao.com/group1/M00/00/86/oYYBAFetay2AT3cTAABtXTj9DIU601.jpg?imageView2/0/w/760/interlace/1/q/100',
+                },
+                {
+                    name : '丹霞山333',
+                    score : '5',
+                    intro : '景区介绍3',
+                    bestTime : '',
+                    adviceTime : '',
+                    suitFor : '男女老少',
+                    thumbTotal : '10',
+                    id : '2',
+                    src : 'http://www.zhihu.com',
+                    imgSrc : 'http://cdn6.jinxidao.com/group1/M00/00/86/oYYBAFetasSAGlMoAABjDCXzd_c821.jpg?imageView2/0/w/760/interlace/1/q/100',
+                },
+                {
+                    name : '丹霞山',
+                    score : '5',
+                    intro : '景区介绍1',
+                    bestTime : '每天',
+                    adviceTime : '',
+                    id : '2',
+                    suitFor : '',
+                    thumbTotal : '20',
+                    src : 'http://www.baidu.com',
+                    imgSrc : 'http://cdn6.jinxidao.com/group1/M00/00/86/oYYBAFetasSAGlMoAABjDCXzd_c821.jpg?imageView2/0/w/760/interlace/1/q/100',
+                },
+                {
+                    name : '丹霞山22',
+                    score : '4',
+                    intro : '景区介绍2',
+                    bestTime : '',
+                    adviceTime : '全天',
+                    suitFor : '',
+                    id : '2',
+                    thumbTotal : '5',
+                    src : 'http://www.google.com',
+                    imgSrc : 'http://cdn6.jinxidao.com/group1/M00/00/86/oYYBAFetay2AT3cTAABtXTj9DIU601.jpg?imageView2/0/w/760/interlace/1/q/100',
+                },
+                {
+                    name : '丹霞山333',
+                    score : '5',
+                    intro : '景区介绍3',
+                    id : '2',
+                    bestTime : '',
+                    adviceTime : '',
+                    suitFor : '男女老少',
+                    thumbTotal : '10',
+                    src : 'http://www.zhihu.com',
+                    imgSrc : 'http://cdn6.jinxidao.com/group1/M00/00/86/oYYBAFetasSAGlMoAABjDCXzd_c821.jpg?imageView2/0/w/760/interlace/1/q/100',
+                },
+            ],
+        },
+        methods : {
+            toggleHeader : function(nav){
+                console.log('change to ' + nav);
+                this.headerShow = nav;
+            },
+            thumbTo : function(id){
+                console.log('thumb action id : ' + id);
+            }
+        },
+        ready : function(){
+
+        }
+    }
+</script>

@@ -1,215 +1,105 @@
-<template class="page">
-  <div>
-    <div class="header">
-      <a href="index.html?page=./dist/locationPage.js" class="header-location"><text>我在广州&#9660;</text></a>
-      <search></search>
-    </div>
-    <slider-img slider-img="{{sliderImg}}"></slider-img>
-    <recomand-nav recomand-nav="{{recomandNav}}"></recomand-nav>
+<template>
+  <div style="flex-direction: column;">
+    <wxc-tabbar tab-items = {{tabItems}}></wxc-tabbar>
   </div>
 </template>
 
-<style>
-  .page{
-    background-color: #ebebeb;
-  }
-  .header-location{
-    flex: 1;
-    color: #fff;
-  }
-  .header{
-    flex-direction: row;
-    position: absolute;
-    top: 20;
-    display: flex;
-    width: 675;
-    margin-left: 37.5;
-    z-index: 10;
-  }
-</style>
 
 <script>
-  require('./search.we');
-  require('./slider-img.we');
-  require('./recomand-nav.we');
-
+  require('weex-components');
   module.exports = {
-    data : {
-      sliderImg: [
+    data: {
+      dir: 'dist',
+      tabItems: [
         {
-          imgSrc : 'http://cdn6.jinxidao.com/group1/M00/00/86/oYYBAFetay2AT3cTAABtXTj9DIU601.jpg?imageView2/0/w/760/interlace/1/q/100',
-          src : 'http://www.baiduc.com'
+          index: 0,
+          title: '首页',
+          titleColor: '#ff9000',
+          icon: '',
+          image: 'http://gtms01.alicdn.com/tps/i1/TB1qw.hMpXXXXagXXXX9t7RGVXX-46-46.png',
+          selectedImage: 'http://gtms04.alicdn.com/tps/i4/TB16jjPMpXXXXazXVXX9t7RGVXX-46-46.png',
+          src: 'index.js',
+          visibility: 'visible',
         },
         {
-          imgSrc : 'http://cdn6.jinxidao.com/group1/M00/00/86/oYYBAFeta2qACoqBAABKaWX_edk785.jpg?imageView2/0/w/760/interlace/1/q/100',
-          src : 'http://m.yaochufa.com'
+          index: 1,
+          title: '目的地',
+          titleColor: '#000000',
+          icon: '',
+          image: 'http://gtms03.alicdn.com/tps/i3/TB1LEn9MpXXXXaUXpXX9t7RGVXX-46-46.png',
+          selectedImage: 'http://gtms02.alicdn.com/tps/i2/TB1qysbMpXXXXcnXXXX9t7RGVXX-46-46.png',
+          src: 'destination.js',
+          visibility: 'hidden',
         },
         {
-          imgSrc : 'http://cdn6.jinxidao.com/group1/M00/00/86/oYYBAFetasSAGlMoAABjDCXzd_c821.jpg?imageView2/0/w/760/interlace/1/q/100',
-          src : 'http://www.zhihu.com'
+          index: 2,
+          title: '发现',
+          titleColor: '#000000',
+          icon: '',
+          image: 'http://gtms01.alicdn.com/tps/i1/TB1B0v5MpXXXXcvXpXX9t7RGVXX-46-46.png',
+          selectedImage: 'http://gtms04.alicdn.com/tps/i4/TB1NxY5MpXXXXcrXpXX9t7RGVXX-46-46.png',
+          src: 'found.js',
+          visibility: 'hidden',
         },
+        {
+          index: 3,
+          title: '我的',
+          titleColor: '#000000',
+          icon: '',
+          image: 'http://gtms01.alicdn.com/tps/i1/TB1B0v5MpXXXXcvXpXX9t7RGVXX-46-46.png',
+          selectedImage: 'http://gtms04.alicdn.com/tps/i4/TB1NxY5MpXXXXcrXpXX9t7RGVXX-46-46.png',
+          src: 'userHome.js',
+          visibility: 'hidden',
+        }
       ],
-      recomandNav: [
-        [
-          {
-            imgSrc : 'http://cdn6.jinxidao.com/group1/M00/00/86/oYYBAFetay2AT3cTAABtXTj9DIU601.jpg?imageView2/0/w/760/interlace/1/q/100',
-            src : 'http://www.baiduc.com',
-            text : 'xsfs'
-          },
-          {
-            imgSrc : 'http://cdn6.jinxidao.com/group1/M00/00/86/oYYBAFeta2qACoqBAABKaWX_edk785.jpg?imageView2/0/w/760/interlace/1/q/100',
-            src : 'http://m.yaochufa.com',
-            text : 'xsfs'
-          },
-          {
-            imgSrc : 'http://cdn6.jinxidao.com/group1/M00/00/86/oYYBAFetasSAGlMoAABjDCXzd_c821.jpg?imageView2/0/w/760/interlace/1/q/100',
-            src : 'http://www.zhihu.com',
-            text : 'xsfs'
-          },
-          {
-            imgSrc : 'http://cdn6.jinxidao.com/group1/M00/00/86/oYYBAFeta2qACoqBAABKaWX_edk785.jpg?imageView2/0/w/760/interlace/1/q/100',
-            src : 'http://m.yaochufa.com',
-            text : 'xsfs'
-          },
-          {
-            imgSrc : 'http://cdn6.jinxidao.com/group1/M00/00/86/oYYBAFetasSAGlMoAABjDCXzd_c821.jpg?imageView2/0/w/760/interlace/1/q/100',
-            src : 'http://www.zhihu.com',
-            text : 'xsfs'
-          },
-          {
-            imgSrc : 'http://cdn6.jinxidao.com/group1/M00/00/86/oYYBAFetay2AT3cTAABtXTj9DIU601.jpg?imageView2/0/w/760/interlace/1/q/100',
-            src : 'http://www.baiduc.com',
-            text : 'xsfs'
-          },
-          {
-            imgSrc : 'http://cdn6.jinxidao.com/group1/M00/00/86/oYYBAFeta2qACoqBAABKaWX_edk785.jpg?imageView2/0/w/760/interlace/1/q/100',
-            src : 'http://m.yaochufa.com',
-            text : 'xsfs'
-          },
-          {
-            imgSrc : 'http://cdn6.jinxidao.com/group1/M00/00/86/oYYBAFetasSAGlMoAABjDCXzd_c821.jpg?imageView2/0/w/760/interlace/1/q/100',
-            src : 'http://www.zhihu.com',
-            text : 'xsfs'
-          },
-          {
-            imgSrc : 'http://cdn6.jinxidao.com/group1/M00/00/86/oYYBAFeta2qACoqBAABKaWX_edk785.jpg?imageView2/0/w/760/interlace/1/q/100',
-            src : 'http://m.yaochufa.com',
-            text : 'xsfs'
-          },
-          {
-            imgSrc : 'http://cdn6.jinxidao.com/group1/M00/00/86/oYYBAFetasSAGlMoAABjDCXzd_c821.jpg?imageView2/0/w/760/interlace/1/q/100',
-            src : 'http://www.zhihu.com',
-            text : 'xsfs'
-          },
-        ],
-        [
-          {
-            imgSrc : 'http://cdn6.jinxidao.com/group1/M00/00/86/oYYBAFetay2AT3cTAABtXTj9DIU601.jpg?imageView2/0/w/760/interlace/1/q/100',
-            src : 'http://www.baiduc.com',
-            text : 'xsfs'
-          },
-          {
-            imgSrc : 'http://cdn6.jinxidao.com/group1/M00/00/86/oYYBAFeta2qACoqBAABKaWX_edk785.jpg?imageView2/0/w/760/interlace/1/q/100',
-            src : 'http://m.yaochufa.com',
-            text : 'xsfs'
-          },
-          {
-            imgSrc : 'http://cdn6.jinxidao.com/group1/M00/00/86/oYYBAFetasSAGlMoAABjDCXzd_c821.jpg?imageView2/0/w/760/interlace/1/q/100',
-            src : 'http://www.zhihu.com',
-            text : 'xsfs'
-          },
-          {
-            imgSrc : 'http://cdn6.jinxidao.com/group1/M00/00/86/oYYBAFeta2qACoqBAABKaWX_edk785.jpg?imageView2/0/w/760/interlace/1/q/100',
-            src : 'http://m.yaochufa.com',
-            text : 'xsfs'
-          },
-          {
-            imgSrc : 'http://cdn6.jinxidao.com/group1/M00/00/86/oYYBAFetasSAGlMoAABjDCXzd_c821.jpg?imageView2/0/w/760/interlace/1/q/100',
-            src : 'http://www.zhihu.com',
-            text : 'xsfs'
-          },
-          {
-            imgSrc : 'http://cdn6.jinxidao.com/group1/M00/00/86/oYYBAFetay2AT3cTAABtXTj9DIU601.jpg?imageView2/0/w/760/interlace/1/q/100',
-            src : 'http://www.baiduc.com',
-            text : 'xsfs'
-          },
-          {
-            imgSrc : 'http://cdn6.jinxidao.com/group1/M00/00/86/oYYBAFeta2qACoqBAABKaWX_edk785.jpg?imageView2/0/w/760/interlace/1/q/100',
-            src : 'http://m.yaochufa.com',
-            text : 'xsfs'
-          },
-          {
-            imgSrc : 'http://cdn6.jinxidao.com/group1/M00/00/86/oYYBAFetasSAGlMoAABjDCXzd_c821.jpg?imageView2/0/w/760/interlace/1/q/100',
-            src : 'http://www.zhihu.com',
-            text : 'xsfs'
-          },
-          {
-            imgSrc : 'http://cdn6.jinxidao.com/group1/M00/00/86/oYYBAFeta2qACoqBAABKaWX_edk785.jpg?imageView2/0/w/760/interlace/1/q/100',
-            src : 'http://m.yaochufa.com',
-            text : 'xsfs'
-          },
-          {
-            imgSrc : 'http://cdn6.jinxidao.com/group1/M00/00/86/oYYBAFetasSAGlMoAABjDCXzd_c821.jpg?imageView2/0/w/760/interlace/1/q/100',
-            src : 'http://www.zhihu.com',
-            text : 'xsfs'
-          },
-        ],
-        [
-          {
-            imgSrc : 'http://cdn6.jinxidao.com/group1/M00/00/86/oYYBAFetay2AT3cTAABtXTj9DIU601.jpg?imageView2/0/w/760/interlace/1/q/100',
-            src : 'http://www.baiduc.com',
-            text : 'xsfs'
-          },
-          {
-            imgSrc : 'http://cdn6.jinxidao.com/group1/M00/00/86/oYYBAFeta2qACoqBAABKaWX_edk785.jpg?imageView2/0/w/760/interlace/1/q/100',
-            src : 'http://m.yaochufa.com',
-            text : 'xsfs'
-          },
-          {
-            imgSrc : 'http://cdn6.jinxidao.com/group1/M00/00/86/oYYBAFetasSAGlMoAABjDCXzd_c821.jpg?imageView2/0/w/760/interlace/1/q/100',
-            src : 'http://www.zhihu.com',
-            text : 'xsfs'
-          },
-          {
-            imgSrc : 'http://cdn6.jinxidao.com/group1/M00/00/86/oYYBAFeta2qACoqBAABKaWX_edk785.jpg?imageView2/0/w/760/interlace/1/q/100',
-            src : 'http://m.yaochufa.com',
-            text : 'xsfs'
-          },
-          {
-            imgSrc : 'http://cdn6.jinxidao.com/group1/M00/00/86/oYYBAFetasSAGlMoAABjDCXzd_c821.jpg?imageView2/0/w/760/interlace/1/q/100',
-            src : 'http://www.zhihu.com',
-            text : 'xsfs'
-          },
-          {
-            imgSrc : 'http://cdn6.jinxidao.com/group1/M00/00/86/oYYBAFetay2AT3cTAABtXTj9DIU601.jpg?imageView2/0/w/760/interlace/1/q/100',
-            src : 'http://www.baiduc.com',
-            text : 'xsfs'
-          },
-          {
-            imgSrc : 'http://cdn6.jinxidao.com/group1/M00/00/86/oYYBAFeta2qACoqBAABKaWX_edk785.jpg?imageView2/0/w/760/interlace/1/q/100',
-            src : 'http://m.yaochufa.com',
-            text : 'xsfs'
-          },
-          {
-            imgSrc : 'http://cdn6.jinxidao.com/group1/M00/00/86/oYYBAFetasSAGlMoAABjDCXzd_c821.jpg?imageView2/0/w/760/interlace/1/q/100',
-            src : 'http://www.zhihu.com',
-            text : 'xsfs'
-          },
-          {
-            imgSrc : 'http://cdn6.jinxidao.com/group1/M00/00/86/oYYBAFeta2qACoqBAABKaWX_edk785.jpg?imageView2/0/w/760/interlace/1/q/100',
-            src : 'http://m.yaochufa.com',
-            text : 'xsfs'
-          },
-          {
-            imgSrc : 'http://cdn6.jinxidao.com/group1/M00/00/86/oYYBAFetasSAGlMoAABjDCXzd_c821.jpg?imageView2/0/w/760/interlace/1/q/100',
-            src : 'http://www.zhihu.com',
-            text : 'xsfs'
-          },
-        ],
-      ]
     },
-    methods : {
+    created: function() {
+      var bundleUrl = this.$getConfig().bundleUrl;
+      console.log('hit', bundleUrl);
+      var nativeBase;
+      var isAndroidAssets = bundleUrl.indexOf('file://assets/') >= 0;
+      var isiOSAssets = bundleUrl.indexOf('file:///') >= 0 && bundleUrl.indexOf('WeexDemo.app') > 0;
+      if (isAndroidAssets) {
+        nativeBase = 'file://assets/';
+      }
+      else if (isiOSAssets) {
+        // file:///var/mobile/Containers/Bundle/Application/{id}/WeexDemo.app/
+        // file:///Users/{user}/Library/Developer/CoreSimulator/Devices/{id}/data/Containers/Bundle/Application/{id}/WeexDemo.app/
+        nativeBase = bundleUrl.substring(0, bundleUrl.lastIndexOf('/') + 1);
+      }
+      else {
+        var host = 'localhost:12580';
+        var matches = /\/\/([^\/]+?)\//.exec(this.$getConfig().bundleUrl);
+        if (matches && matches.length >= 2) {
+          host = matches[1];
+        }
+        nativeBase = 'http://' + host + '/' + this.dir + '/';
+      }
+      var h5Base = './' + this.dir + '/';
+      console.log(h5Base);
+      // in Native
+      var base = nativeBase;
+      if (typeof window === 'object') {
+        // in Browser or WebView
+        base = h5Base;
+      }
 
+      for(var i = 0; i < this.tabItems.length; i++) {
+        var tabItem = this.tabItems[i];
+        tabItem.src = base + tabItem.src;
+        console.log(tabItem.src);
+      }
+      // see log in Android Logcat
+      //if (this.items.length) console.log('hit', this.items[0].url);
+    },
+    methods: {
+      ready: function (e) {
+        var vm = this;
+        vm.$on('tabBar.onClick',function(e){
+          var detail= e.detail;
+          nativeLog('tabBar.onClick ' + detail.index);
+        });
+      },
     }
   }
 </script>

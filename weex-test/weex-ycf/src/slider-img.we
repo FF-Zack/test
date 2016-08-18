@@ -15,8 +15,8 @@
         width: 150;
         height:50;
         position:absolute;
-        bottom:20;
-        right:50;
+        top:400;
+        left:600;
         item-color: #eee;
         item-selectedColor: #ff9000;
         item-size: 20;
@@ -29,6 +29,7 @@
         flex-direction: row;
         width: 750;
         height: 500;
+        position: relative;
     }
     .slider-img{
         width: 750;
