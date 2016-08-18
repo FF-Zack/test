@@ -5,9 +5,9 @@
             <div class="header-nav"><text class="nav-text {{headerShow == 'rule' ? 'selected' : 'noSelected'}}" onclick="toggleHeader('rule');">游玩须知</text></div>
         </div>
 
-        <list class="recomand-list" if="{{headerShow == 'recomand'}}">
-            <cell append="tree">
-                <div class="recomand-cont" repeat="{{recomandData}}">
+        <list class="recomand-list" if="{{headerShow == 'recomand'}}" loadmoreoffset=2000>
+            <cell append="tree" composite={{composite}} repeat="{{recomandData}}">
+                <div class="recomand-cont" >
                     <image src="{{imgSrc}}" class="recomand-img"></image>
                     <text class="recomand-name">{{name}}</text>
                     <text class="recomand-score">推荐指数：{{score}}颗星</text>
@@ -316,7 +316,7 @@
             },
             thumbTo : function(id){
                 console.log('thumb action id : ' + id);
-            }
+            },
         },
         ready : function(){
 
